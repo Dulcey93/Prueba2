@@ -1,0 +1,137 @@
+<div class="container">
+    <div class="recruiter">
+        <h1>Add a Recruit</h1>
+        <form name="student" id="student" autocomplete="off">
+            <input type="text" name="nombre" placeholder="Your name here" required>
+            <input type="number" name="edad" placeholder="Your age here" required>
+            <input type="number" name="telefono" placeholder="Your number here" required>
+            <input type="email" name="email" placeholder="Your email here" required>
+            <input type="text" name="adress" placeholder="Your adress here" required>
+            <fieldset>
+                <legend>Fecha de nacimiento</legend>
+                <input type="date" name="dateBorn" required>
+            </fieldset>
+            <input type="text" name="document" placeholder="Your document here" required>
+            <fieldset>
+                <legend>Fecha de ingreso</legend>
+                <input type="date" name="dateIn" required>
+            </fieldset>
+    
+            <select name="idTeam" id="idTeam" required>
+                <option value="">select your team</option>
+            </select>
+            <button type="submit">Send</button>
+            <button type="button" class="students">View students</button>
+        </form>
+    </div>
+    <div class="others">
+        <div class="team">
+            <h1>Add a Team</h1>
+            <form name="team" id="team" autocomplete="off">
+                <input type="text" name="nombreTeam" placeholder="Set a Name for your team" required>
+                <input type="text" name="trainerAsociado" placeholder="Set a Trainer" required>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+        <div class="team">
+            <h1>Add a Skill</h1>
+            <form name="skill" id="skill" autocomplete="off">
+                <input type="text" name="nombreSkill" placeholder="Set a Skill" required>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+        <div class="team">
+            <h1>Add a Modulo</h1>
+            <form name="modulo" id="modulo" autocomplete="off">
+                <input type="text" name="nombreModuloSkill" placeholder="Set a Name for the module" required>
+                <select name="idSkill" id="idSkill" required>
+                    <option value="">select your skill</option>
+                </select>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+        <div class="team">
+            <h1>Add Evaluacion</h1>
+            <form name="modulo" id="evaluacion" autocomplete="off">
+                <select name="idModulo" id="idModulo" required>
+                    <option value="">select your module</option>
+                </select>
+                <select name="idrecluta" id="idrecluta" required>
+                    <option value="">select the recruiter</option>
+                </select>
+                <input type="text" name="nota" placeholder="Set a note for the recruiter" required>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+    * {
+        font-family: 'Montserrat', sans-serif !important;
+    }
+    .container{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 20px;
+    }
+    .recruiter{
+        border-color: red;
+        border-radius: 10px;
+        box-shadow: #000;
+
+    }
+    .others{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    .team{
+        background-color: #000;
+        border-color: red;
+        border-radius: 10px;
+        box-shadow: #000;
+    }
+    .team h1{
+        color: #fff;
+    }
+    h1 {
+        text-align: center;
+    }
+
+    form {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    input,
+    select,
+    button {
+        width: 300px;
+        box-sizing: border-box;
+        height: 40px;
+    }
+    button {
+        border: none;
+        background-color: #191a2c;
+        color: #ffffff;
+        transition: .1s all ease-in-out;
+    }
+    button:hover{
+            border: #000000 1px solid;
+            background-color: #ffffff;    
+            color: #000000;
+            cursor: pointer;
+        }
+    .students {
+        color: #000000;
+        background-color: #ffffff;
+        border: 1px solid #000;
+    }
+</style>

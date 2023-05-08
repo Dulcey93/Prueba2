@@ -1,0 +1,93 @@
+<header>
+    <h2 class="logo">CampusWars</h2>
+    <nav class="navigation">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+        <button class="btnLoging-popup">Nothing</button>
+    </nav>
+</header>
+<style type="text/css">
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 99;
+    }
+
+    .logo {
+        font-size: 2em;
+        color: #fff;
+        user-select: none;
+    }
+
+    .navigation a {
+        position: relative;
+        font-size: 1.1em;
+        background-color: #171718;
+        border-radius: 10%;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        margin-left: 40px;
+    }
+
+    .navigation a:hover {
+        background-color: #fff;
+        color:#171718;
+    }
+
+    .navigation a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 100%;
+        height: 2px;
+        background-color: #fff;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform .5s ease;
+        border-radius: 5px;
+    }
+
+    .navigation a:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
+    .navigation .btnLoging-popup {
+        width: 130px;
+        height: 50px;
+        background: transparent;
+        border: 2px solid #171718;
+        color: #171718;
+        font-size: 1.1em;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-left: 40px;
+        outline: none;
+        border-radius: 6px;
+    }
+
+    .navigation .btnLoging-popup:hover {
+        background-color: #fff;
+        color: #000;
+    }
+</style>

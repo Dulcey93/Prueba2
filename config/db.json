@@ -1,0 +1,58 @@
+{
+  "reclutas": [
+    {
+      "nombre": "Pedro",
+      "edad": 85,
+      "telefono": 852,
+      "email": "correo@pedro.com",
+      "adress": "asdsad",
+      "dateBorn": "2023-05-12",
+      "document": 351135,
+      "dateIn": "2023-06-03",
+      "idTeam": 2,
+      "id": 1
+    }
+  ],
+  "team": [
+    {
+      "nombreTeam": "Sputnik",
+      "trainerAsociado": "Miguel",
+      "id": 2
+    },
+    {
+      "nombreTeam": "Artemis",
+      "trainerAsociado": "paulo",
+      "id": 3
+    }
+  ],
+  "skill": [
+    {
+      "id": 1,
+      "nombreSkill": "javaScript"
+    },
+    {
+      "nombreSkill": "java",
+      "id": 2
+    }
+  ],
+  "moduloSkill": [
+    {
+      "id": 1,
+      "nombreModuloSkill": "frontend",
+      "idSkill": 1
+    },
+    {
+      "nombreModuloSkill": "web",
+      "idSkill": "1",
+      "id": 2
+    }
+  ],
+  "evaluacion": [
+    {
+      "id": 1,
+      "idrecluta": 1,
+      "idModulo": 1,
+      "nota": 1
+    }
+  ]
+}
