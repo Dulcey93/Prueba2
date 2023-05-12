@@ -1,5 +1,3 @@
-
-
 export default {
     async getData(url) {
         let data = await (await fetch(url, {

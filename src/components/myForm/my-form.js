@@ -17,12 +17,12 @@ export default class MyForm extends HTMLElement {
         e.preventDefault();
         let ws = new Worker("src/workers/wsPost.js", {type: "module"})
         let data = Object.fromEntries(new FormData(e.target));
-        let {nombre, edad, telefono, email, adress, dateBorn, document, dateIn, idTeam}= data;
+        let {nombre, edad, telefono, email, adress, dateBorn, document, dateIn, teamId}= data;
         edad = parseInt(edad);
         telefono = parseInt(telefono);
         document = parseInt(document);
-        idTeam = parseInt(idTeam);
-        data = {nombre, edad, telefono, email, adress, dateBorn, document, dateIn, idTeam};
+        teamId = parseInt(teamId);
+        data = {nombre, edad, telefono, email, adress, dateBorn, document, dateIn, teamId};
         ws.postMessage({ accion: "postOne", body: data });
         ws.addEventListener("message", (e) => {
             ws.terminate()

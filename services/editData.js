@@ -6,12 +6,12 @@ export default{
         form.addEventListener("submit", (e)=>{
             e.preventDefault();
             let data = Object.fromEntries(new FormData(e.target));
-            let {nombre, edad, telefono, email, adress, dateBorn, document, dateIn, idTeam}= data;
+            let {nombre, edad, telefono, email, adress, dateBorn, document, dateIn, teamId}= data;
             edad = parseInt(edad);
             telefono = parseInt(telefono);
             document = parseInt(document);
-            idTeam = parseInt(idTeam);
-            data = {nombre, edad, telefono, email, adress, dateBorn, document, dateIn, idTeam};
+            teamId = parseInt(teamId);
+            data = {nombre, edad, telefono, email, adress, dateBorn, document, dateIn, teamId};
             data = [data, element.classList[1]];
             let ws = new Worker("/src/workers/wsPost.js", {type: "module"})
             ws.postMessage({ accion: "putData", body: data });

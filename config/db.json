@@ -9,7 +9,7 @@
       "dateBorn": "2023-05-12",
       "document": 351135,
       "dateIn": "2023-06-03",
-      "idTeam": 2,
+      "teamId": 2,
       "id": 1
     }
   ],
@@ -39,19 +39,19 @@
     {
       "id": 1,
       "nombreModuloSkill": "frontend",
-      "idSkill": 1
+      "skillId": 1
     },
     {
       "nombreModuloSkill": "web",
-      "idSkill": "1",
+      "skillId": "1",
       "id": 2
     }
   ],
   "evaluacion": [
     {
       "id": 1,
-      "idrecluta": 1,
-      "idModulo": 1,
+      "reclutasId": 1,
+      "moduloSkillId": 1,
       "nota": 1
     }
   ]
