@@ -1,6 +1,7 @@
 {
     "conventionalCommits.scopes": [
         "Start the project",
-        "Add features"
+        "Add features",
+        "Add settings.json changes"
     ]
 }
