@@ -5,12 +5,12 @@ let ws = {
         const data = await api.getData(url);
         let html = ``;
         data.forEach(element => {
-            let {idrecluta, idModulo, nota, id}= element;
+            let {reclutasId, moduloSkillId, nota, id}= element;
             html += `
             <tr class="p-1">
                 <td>${id}</td>
-                <td>${idrecluta}</td>
-                <td>${idModulo}</td>
+                <td>${reclutasId}</td>
+                <td>${moduloSkillId}</td>
                 <td>${nota}</td>
                 <td><button type="button" class="delete ${id} btn btn-light w-100">Delete</button></td>
                 <td><button type="button" class="edit ${id} btn w-100">Edit</button></td>

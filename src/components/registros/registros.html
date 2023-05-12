@@ -1,107 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="registros.js" defer type="module"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <title>Lista</title>
 </head>
+
 <body class="d-flex flex-column justify-content-center align-items-center gap-4">
     <h1 class="text-center mt-5">Reclutas</h1>
-    <div class="container bg-dark "id="reclutas">
+    <div class="container bg-dark " id="reclutas">
         <table class="table text-white">
             <thead>
-              <tr>
-                <th scope="col">id</th>
-                <th scope="col">nombre</th>
-                <th scope="col">edad</th>
-                <th scope="col">telefono</th>
-                <th scope="col">email</th>
-                <th scope="col">adress</th>
-                <th scope="col">dateBorn</th>
-                <th scope="col">document</th>
-                <th scope="col">dateIn</th>
-                <th scope="col">idTeam</th>
-              </tr>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">nombre</th>
+                    <th scope="col">edad</th>
+                    <th scope="col">telefono</th>
+                    <th scope="col">email</th>
+                    <th scope="col">adress</th>
+                    <th scope="col">dateBorn</th>
+                    <th scope="col">document</th>
+                    <th scope="col">dateIn</th>
+                    <th scope="col">teamId</th>
+                </tr>
             </thead>
-            <tbody class="tablebody">
+            <tbody class="tablebody" id="reclutaBody">
             </tbody>
-          </table>
+        </table>
+    </div>
+    <div class="container">
+        <div class="others">
+            <div class="team">
+                <h5>Teams</h5>
+                <table class="table text-white">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">nombreTeam</th>
+                            <th scope="col">trainerAsociado</th>
+                        </tr>
+                    </thead>
+                    <tbody class="modalbody" id="teamBody">
+                    </tbody>
+                </table>
+            </div>
+            <div class="team">
+                <h5>Skills</h5>
+                <table class="table text-white">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">nombreSkill</th>
+                        </tr>
+                    </thead>
+                    <tbody class="modalbody" id="skillBody">
+                    </tbody>
+                </table>
+            </div>
+            <div class="team">
+                <h5>Modulos</h5>
+                <table class="table text-white">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">nombreModuloSkill</th>
+                            <th scope="col">skillId</th>
+                        </tr>
+                    </thead>
+                    <tbody class="modalbody" id="moduloBody">
+                    </tbody>
+                </table>
+            </div>
+            <div class="team">
+                <h5>Evaluación</h5>
+                <table class="table text-white">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">reclutasId</th>
+                            <th scope="col">moduloSkillId</th>
+                            <th scope="col">nota</th>
+                        </tr>
+                    </thead>
+                    <tbody class="modalbody" id="evaluacionBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
     <button type="button" class="search">Search Reclutas</button>
     <dialog id="my-dialog2" class="w-100">
         <input class="w-25" type="text" id="searchInput" placeholder="Name, Clasroom or Skill here" required>
         <table class="table text-dark">
             <thead>
-              <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Skill</th>
-                <th scope="col">Team</th>
-              </tr>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Skill</th>
+                    <th scope="col">Team</th>
+                </tr>
             </thead>
             <tbody class="modalbody">
             </tbody>
-          </table>
+        </table>
         <button class="w-25" type="button" id="closeModal">Close</button>
     </dialog>
     <button type="button" id="register" class="mb-5">Go register panel</button>
     <dialog id="my-dialog">
-        <h1>Add a Recruit</h1>
+        <h1>Edit a Recruit</h1>
         <form id="editForm" autocomplete="off">
-            <input type="text" name="nombre" placeholder="New name here" required>
-            <input type="number" name="edad" placeholder="New age here" required>
-            <input type="number" name="telefono" placeholder="New number here" required>
-            <input type="email" name="email" placeholder="New email here" required>
-            <input type="text" name="adress" placeholder="New adress here" required>
+            <input type="text" name="nombre" required>
+            <input type="number" name="edad" required>
+            <input type="number" name="telefono" required>
+            <input type="email" name="email" required>
+            <input type="text" name="adress" required>
             <fieldset>
                 <legend>Fecha de nacimiento</legend>
                 <input type="date" name="dateBorn" required>
             </fieldset>
-            <input type="text" name="document" placeholder="Your document here" required>
+            <input type="text" name="document" required>
             <fieldset>
                 <legend>Fecha de ingreso</legend>
                 <input type="date" name="dateIn" required>
             </fieldset>
 
-            <select name="idTeam" id="salones" required>
-                <option value="">select your classroom</option>
-                <option value="1">Sputnik</option>
-                <option value="2">Apollo</option>
-                <option value="3">Artemis</option>
+            <select name="teamId" id="teamId" required>
             </select>
             <button type="submit">Send</button>
         </form>
     </dialog>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-        *{
+
+        * {
             font-family: 'Montserrat', sans-serif !important;
         }
-        body{
+
+        body {
             background-color: #191a2c;
             color: #ffffff;
         }
-        button{
+
+        button {
             border: none;
             background-color: #191a2c;
             color: #ffffff;
             transition: .1s all ease-in-out;
 
         }
-        button:hover{
+
+        button:hover {
             border: #000000 1px solid;
-            background-color: #ffffff;    
+            background-color: #ffffff;
             color: #000000;
         }
-        input, select, button{
+
+        input,
+        select,
+        button {
             width: 300px;
             box-sizing: border-box;
             height: 40px;
             transition: .1s all ease-in-out;
         }
-        #editForm{
+
+        #editForm {
             margin: auto;
             display: flex;
             flex-direction: column;
@@ -109,15 +176,87 @@
             align-items: center;
             gap: 10px;
         }
-        .edit, .delete{
+
+        .edit,
+        .delete {
             border-radius: 0 !important;
         }
-        .edit{
+
+        .edit {
             background-color: #191a2c !important;
             border: #ffffff 1px solid !important;
             color: #ffffff !important;
         }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .recruiter {
+            border-color: red;
+            border-radius: 10px;
+            box-shadow: #000;
+
+        }
+
+        .others {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .team {
+            background-color: #000;
+            border-color: red;
+            border-radius: 10px;
+            box-shadow: #000;
+        }
+
+        .team h1 {
+            color: #fff;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        input,
+        select,
+        button {
+            width: 300px;
+            box-sizing: border-box;
+            height: 40px;
+        }
+
+        button {
+            border: none;
+            background-color: #191a2c;
+            color: #ffffff;
+            transition: .1s all ease-in-out;
+        }
+
+        button:hover {
+            border: #000000 1px solid;
+            background-color: #ffffff;
+            color: #000000;
+            cursor: pointer;
+        }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

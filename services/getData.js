@@ -3,27 +3,63 @@ import edit_users from  "./editData.js";
 
 export default {
     wsGet: new Worker("/src/workers/wsPost.js", {type:"module"}),
+    wsTeam: new Worker("/src/workers/wsTeam.js", {type:"module"}),
+    wsSkill: new Worker("/src/workers/wsSkill.js", {type:"module"}),
+    wsModulo: new Worker("/src/workers/wsModulo.js", {type:"module"}),
+    wsEvaluacion: new Worker("/src/workers/wsEvaluacion.js", {type:"module"}),
     printData(){
         window.addEventListener("DOMContentLoaded", (e)=>{
           const dialog = document.querySelector("#my-dialog");
+          // Reclutas tabla
           this.wsGet.postMessage({ accion: "showAll"});
           this.wsGet.addEventListener("message", (e) => {
-            document.querySelector(".tablebody").insertAdjacentHTML("beforebegin", e.data);
-            let delete_button = document.querySelectorAll(".delete");
-            let edit_button = document.querySelectorAll(".edit");
+            document.querySelector("#reclutaBody").insertAdjacentHTML("beforebegin", e.data);
+            // Seleccionamos todos los botones dentro de la tabla reclutas
+            const delete_button = document.querySelectorAll(".recluta .delete");
+            const edit_button = document.querySelectorAll(".recluta .edit");
             delete_button.forEach((element) => {
               element.addEventListener("click", () => {
                 delete_users.getEvent(element)
               });
             });
-            edit_button.forEach((element) => {
+            edit_button.forEach((element) => {  
                 element.addEventListener("click", () => {
                   edit_users.editEvent(element)
                   dialog.showModal();
                 });
               });
-            this.wsGet.terminate()
-          });              
+            this.wsGet.terminate();
+          });
+          
+          // Team Tabla
+          this.wsTeam.postMessage({ accion: "showAll"});
+          this.wsTeam.addEventListener("message", (e) => {
+            document.querySelector("#teamBody").insertAdjacentHTML("beforebegin", e.data);
+            // Seleccionamos todos los botones dentro de la tabla team
+              
+            this.wsTeam.terminate();
+          });
+
+          // Skill Tabla
+          this.wsSkill.postMessage({ accion: "showAll"});
+          this.wsSkill.addEventListener("message", (e) => {
+            document.querySelector("#skillBody").insertAdjacentHTML("beforebegin", e.data);
+            this.wsSkill.terminate();
+          });
+
+          // Modulo Tabla
+          this.wsModulo.postMessage({ accion: "showAll"});
+          this.wsModulo.addEventListener("message", (e) => {
+            document.querySelector("#moduloBody").insertAdjacentHTML("beforebegin", e.data);
+            this.wsModulo.terminate();
+          });
+          
+          // Evaluacion Tabla
+          this.wsEvaluacion.postMessage({ accion: "showAll"});
+          this.wsEvaluacion.addEventListener("message", (e) => {
+            document.querySelector("#evaluacionBody").insertAdjacentHTML("beforebegin", e.data);
+            this.wsEvaluacion.terminate();
+          });
         })
     },
     changeView(){

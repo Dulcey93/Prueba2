@@ -5,7 +5,7 @@ let ws = {
         const data = await api.getData(url);
         let html = ``;
         data.forEach(element => {
-            let {nombre, edad, telefono, email, adress, dateBorn, document, dateIn, idTeam, id}= element;
+            let {nombre, edad, telefono, email, adress, dateBorn, document, dateIn, teamId, id}= element;
             html += `
             <tr class="p-1">
                 <td>${id}</td>
@@ -17,13 +17,17 @@ let ws = {
                 <td>${dateBorn}</td>
                 <td>${document}</td>
                 <td>${dateIn}</td>
-                <td>${idTeam}</td>
-                <td><button type="button" class="delete ${id} btn btn-light w-100">Delete</button></td>
-                <td><button type="button" class="edit ${id} btn w-100">Edit</button></td>
+                <td>${teamId}</td>
+                <td><button type="button" class="recluta delete ${id} btn btn-light w-100">Delete</button></td>
+                <td><button type="button" class="recluta edit ${id} btn w-100">Edit</button></td>
             </tr>
             `
         });
         return [html];
+    },
+    async getRecruiter(id) {
+        const res = await api.getDataById(id, url);
+        return res;
     },
     async postOne(data) {
         const res = await api.postData(data, url);

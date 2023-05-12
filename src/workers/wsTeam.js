@@ -11,8 +11,8 @@ let ws = {
                 <td>${id}</td>
                 <td>${nombreTeam}</td>
                 <td>${trainerAsociado}</td>
-                <td><button type="button" class="delete ${id} btn btn-light w-100">Delete</button></td>
-                <td><button type="button" class="edit ${id} btn w-100">Edit</button></td>
+                <td><button type="button" class="team delete ${id} btn btn-light w-100">Delete</button></td>
+                <td><button type="button" class="team edit ${id} btn w-100">Edit</button></td>
             </tr>
             `
         });

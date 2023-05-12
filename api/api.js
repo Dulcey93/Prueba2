@@ -39,5 +39,14 @@ export default {
             }
         })).json()
         return data ? data : {result: 'invalid'}
+    },
+    async getDataById(id, url){
+        let data = await (await fetch(url+`/${id}`, {
+            method: 'GET',
+            headers: {
+                'Content-type' : 'application/json'
+            }
+        })).json()
+        return data ? data : {result: 'invalid'}
     }
 }
