@@ -1,5 +1,6 @@
 {
     "conventionalCommits.scopes": [
-        "Start the project"
+        "Start the project",
+        "Add features"
     ]
 }
