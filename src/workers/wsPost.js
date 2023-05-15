@@ -18,8 +18,8 @@ let ws = {
                 <td>${document}</td>
                 <td>${dateIn}</td>
                 <td>${teamId}</td>
-                <td><button type="button" class="recluta delete ${id} btn btn-light w-100">Delete</button></td>
-                <td><button type="button" class="recluta edit ${id} btn w-100">Edit</button></td>
+                <td><button type="button" class="delete ${id} btn btn-light w-100">Delete</button></td>
+                <td><button type="button" class="edit ${id} btn w-100">Edit</button></td>
             </tr>
             `
         });

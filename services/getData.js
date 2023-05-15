@@ -15,8 +15,8 @@ export default {
           this.wsGet.addEventListener("message", (e) => {
             document.querySelector("#reclutaBody").insertAdjacentHTML("beforebegin", e.data);
             // Seleccionamos todos los botones dentro de la tabla reclutas
-            const delete_button = document.querySelectorAll(".recluta .delete");
-            const edit_button = document.querySelectorAll(".recluta .edit");
+            const delete_button = document.querySelectorAll(".delete");
+            const edit_button = document.querySelectorAll(".edit");
             delete_button.forEach((element) => {
               element.addEventListener("click", () => {
                 delete_users.getEvent(element)
